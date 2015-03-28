@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@drawable/touch_selector">
+
+    <ImageView
+        android:id="@+id/bus_type"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:src="@drawable/busway_orange"
+        android:transitionName="@string/transition_image"/>
+
+    <LinearLayout
+        android:layout_toRightOf="@id/bus_type"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp">
+        <TextView
+            android:id="@+id/bus_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="APTB 021"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/jurusan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Harmony - Blok M"
+            android:textColor="@color/black"
+            android:transitionName="@string/transition_jurusan"/>
+        <TextView
+            android:id="@+id/eta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ETA - 1 Jam 15 Menit"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+</RelativeLayout>

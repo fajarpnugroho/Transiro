@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_frame"
+    android:name="com.seventh.transiro.fragment.BusRowFragment">
+
+</FrameLayout> -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/list_bus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transcriptMode="normal"/>
+
+    <ProgressBar
+        android:id="@+id/ProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:maxHeight="10dip"
+        android:minHeight="10dip"
+        android:layout_alignParentTop="true"
+        android:progress="100"/>
+</RelativeLayout>

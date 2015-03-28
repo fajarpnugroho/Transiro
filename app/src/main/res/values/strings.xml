@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Transiro</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings related to transition animations -->
+    <string name="transition_image">transition_image</string>
+    <string name="transition_jurusan">transition_jurusan</string>
+</resources>

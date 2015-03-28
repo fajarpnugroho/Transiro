@@ -1,0 +1,555 @@
+{ "results": [
+	{
+        "createdAt": "2015-03-21T08:33:47.149Z",
+        "groupLocationArea": 1,
+        "groupName": "Gn. Sahari Mangga Dua",
+        "objectId": "yn1PizypLL",
+        "updatedAt": "2015-03-21T08:33:47.149Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:33:47.332Z",
+        "groupLocationArea": 2,
+        "groupName": "Jembatan Merah",
+        "objectId": "LumoJZRURQ",
+        "updatedAt": "2015-03-21T08:33:47.332Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:33:47.468Z",
+        "groupLocationArea": 4,
+        "groupName": "Budi Utomo",
+        "objectId": "0zRaakE41C",
+        "updatedAt": "2015-03-21T08:33:47.468Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:33:47.478Z",
+        "groupLocationArea": 3,
+        "groupName": "Pasar Baru Timur",
+        "objectId": "0bljHYBu7C",
+        "updatedAt": "2015-03-21T08:33:47.478Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:33:48.204Z",
+        "groupLocationArea": 5,
+        "groupName": "Central Senen ",
+        "objectId": "kRewZCE92J",
+        "updatedAt": "2015-03-21T08:33:48.204Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:53:29.054Z",
+        "groupLocationArea": 6,
+        "groupName": "Pal Putih",
+        "objectId": "a4KTg2tLxV",
+        "updatedAt": "2015-03-21T08:53:29.054Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:53:29.392Z",
+        "groupLocationArea": 9,
+        "groupName": "Salemba Carolus",
+        "objectId": "9u8We7q1DO",
+        "updatedAt": "2015-03-21T08:53:29.392Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:53:29.419Z",
+        "groupLocationArea": 7,
+        "groupName": "Kramat Sentiong NU",
+        "objectId": "8MHnwZEb4e",
+        "updatedAt": "2015-03-21T08:53:29.419Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:53:29.437Z",
+        "groupLocationArea": 8,
+        "groupName": "Salemba UI",
+        "objectId": "mDOylm1r0G",
+        "updatedAt": "2015-03-21T08:53:29.437Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:53:29.451Z",
+        "groupLocationArea": 10,
+        "groupName": "Matraman 1",
+        "objectId": "5Zc6sBpSxT",
+        "updatedAt": "2015-03-21T08:53:29.451Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:54:49.404Z",
+        "groupLocationArea": 12,
+        "groupName": "Slamet Riyadi",
+        "objectId": "6aqpoA8r01",
+        "updatedAt": "2015-03-21T08:54:49.404Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:54:49.446Z",
+        "groupLocationArea": 14,
+        "groupName": "Kampung Melayu",
+        "objectId": "Sfw4QlmLHo",
+        "updatedAt": "2015-03-21T08:54:49.446Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:54:49.469Z",
+        "groupLocationArea": 11,
+        "groupName": "Tegalan",
+        "objectId": "zO6Eljv3qT",
+        "updatedAt": "2015-03-21T08:54:49.469Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:54:49.469Z",
+        "groupLocationArea": 13,
+        "groupName": "Kebon Pala",
+        "objectId": "m6Xs1M0xWN",
+        "updatedAt": "2015-03-21T08:54:49.469Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:54:49.471Z",
+        "groupLocationArea": 15,
+        "groupName": "Pasar Jatinegara",
+        "objectId": "P5871mtr1a",
+        "updatedAt": "2015-03-21T08:54:49.471Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:55:36.794Z",
+        "groupLocationArea": 19,
+        "groupName": "Departemen Pertanian",
+        "objectId": "VQCexgWJc5",
+        "updatedAt": "2015-03-21T08:55:36.794Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:55:37.081Z",
+        "groupLocationArea": 20,
+        "groupName": "SMK 57",
+        "objectId": "u5qdxQhVMw",
+        "updatedAt": "2015-03-21T08:55:37.081Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:55:37.109Z",
+        "groupLocationArea": 16,
+        "groupName": "Jatinegara RS Premier",
+        "objectId": "fHyyyZzgFx",
+        "updatedAt": "2015-03-21T08:55:37.109Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:55:37.165Z",
+        "groupLocationArea": 18,
+        "groupName": "Ragunan",
+        "objectId": "gaJZWnNswZ",
+        "updatedAt": "2015-03-21T08:55:37.165Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:55:37.212Z",
+        "groupLocationArea": 17,
+        "groupName": "Dummy",
+        "objectId": "iJkMN4OlXj",
+        "updatedAt": "2015-03-21T08:55:37.212Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:56:09.735Z",
+        "groupLocationArea": 23,
+        "groupName": "Buncit Indah",
+        "objectId": "eX58uU5smm",
+        "updatedAt": "2015-03-21T08:56:09.735Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:56:09.774Z",
+        "groupLocationArea": 25,
+        "groupName": "Imigrasi Jakarta Selatan",
+        "objectId": "toYOCzNUUz",
+        "updatedAt": "2015-03-21T08:56:09.774Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:56:09.783Z",
+        "groupLocationArea": 24,
+        "groupName": "Warung Jati",
+        "objectId": "5qbz4PLdQv",
+        "updatedAt": "2015-03-21T08:56:09.783Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:56:09.791Z",
+        "groupLocationArea": 22,
+        "groupName": "Pejaten",
+        "objectId": "b2QUXR52X2",
+        "updatedAt": "2015-03-21T08:56:09.791Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:56:09.799Z",
+        "groupLocationArea": 21,
+        "groupName": "Jati Padang",
+        "objectId": "xueBsLsrlY",
+        "updatedAt": "2015-03-21T08:56:09.799Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:56:40.726Z",
+        "groupLocationArea": 27,
+        "groupName": "Mampang Prapatan",
+        "objectId": "uOhmzIltsB",
+        "updatedAt": "2015-03-21T08:56:40.726Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:56:40.784Z",
+        "groupLocationArea": 28,
+        "groupName": "Kuningan Timur",
+        "objectId": "tFeEHSFpfw",
+        "updatedAt": "2015-03-21T08:56:40.784Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:56:40.786Z",
+        "groupLocationArea": 30,
+        "groupName": "Departemen Kesehatan",
+        "objectId": "Qs1Brc2teF",
+        "updatedAt": "2015-03-21T08:56:40.786Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:56:40.795Z",
+        "groupLocationArea": 26,
+        "groupName": "Duren Tiga",
+        "objectId": "19dk8AYBZb",
+        "updatedAt": "2015-03-21T08:56:40.795Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:56:40.793Z",
+        "groupLocationArea": 29,
+        "groupName": "Patra Kuningan",
+        "objectId": "doZoTFf1EN",
+        "updatedAt": "2015-03-21T08:56:40.793Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:10.379Z",
+        "groupLocationArea": 34,
+        "groupName": "Setiabudi Utara Aini",
+        "objectId": "g87IAK8eOn",
+        "updatedAt": "2015-03-21T08:57:10.379Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:10.524Z",
+        "groupLocationArea": 35,
+        "groupName": "Latuharhari",
+        "objectId": "nwZzdsdK8N",
+        "updatedAt": "2015-03-21T08:57:10.524Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:10.906Z",
+        "groupLocationArea": 32,
+        "groupName": "Karet Kuningan",
+        "objectId": "5KOF80mtz8",
+        "updatedAt": "2015-03-21T08:57:10.906Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:10.909Z",
+        "groupLocationArea": 31,
+        "groupName": "Gelanggang Olahraga Sumantri",
+        "objectId": "5AGOpAY3zu",
+        "updatedAt": "2015-03-21T08:57:10.909Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:10.921Z",
+        "groupLocationArea": 33,
+        "groupName": "Kuningan Madya",
+        "objectId": "ntXzzZivd7",
+        "updatedAt": "2015-03-21T08:57:10.921Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:56.449Z",
+        "groupLocationArea": 36,
+        "groupName": "Halimun",
+        "objectId": "tCZvKe8NHa",
+        "updatedAt": "2015-03-21T08:57:56.449Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:56.460Z",
+        "groupLocationArea": 40,
+        "groupName": "Pondok Pinang",
+        "objectId": "7TvamzO1Al",
+        "updatedAt": "2015-03-21T08:57:56.460Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:56.468Z",
+        "groupLocationArea": 39,
+        "groupName": "Harmoni",
+        "objectId": "LUL85pk0lK",
+        "updatedAt": "2015-03-21T08:57:56.468Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:56.480Z",
+        "groupLocationArea": 44,
+        "groupName": "Duri Kepa",
+        "objectId": "QHXmAgXeEe",
+        "updatedAt": "2015-03-21T08:57:56.480Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:56.646Z",
+        "groupLocationArea": 43,
+        "groupName": "Kedoya Assiddiqiyah",
+        "objectId": "FxnUq8YU2V",
+        "updatedAt": "2015-03-21T08:57:56.646Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:56.806Z",
+        "groupLocationArea": 42,
+        "groupName": "Kedoya Green Garden",
+        "objectId": "5ch4T83XT7",
+        "updatedAt": "2015-03-21T08:57:56.806Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:56.872Z",
+        "groupLocationArea": 37,
+        "groupName": "Dukuh Atas 2",
+        "objectId": "zeEpKWMrdB",
+        "updatedAt": "2015-03-21T08:57:56.872Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:56.912Z",
+        "groupLocationArea": 45,
+        "groupName": "Kebon Jeruk RCTI",
+        "objectId": "iHNUbmIKay",
+        "updatedAt": "2015-03-21T08:57:56.912Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:57:56.924Z",
+        "groupLocationArea": 38,
+        "groupName": "Dummy",
+        "objectId": "wQXPgtb56G",
+        "updatedAt": "2015-03-21T08:57:56.924Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:06.856Z",
+        "groupLocationArea": 41,
+        "groupName": "Terminal Lebak Bulus",
+        "objectId": "U0Wa7zfQb2",
+        "updatedAt": "2015-03-21T08:58:06.856Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:42.893Z",
+        "groupLocationArea": 48,
+        "groupName": "Permata Hijau RS Medika",
+        "objectId": "s60EUo0wF5",
+        "updatedAt": "2015-03-21T08:58:42.893Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:42.909Z",
+        "groupLocationArea": 47,
+        "groupName": "Pos Pengumben",
+        "objectId": "KLNnYRYyL3",
+        "updatedAt": "2015-03-21T08:58:42.909Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:42.930Z",
+        "groupLocationArea": 52,
+        "groupName": "Kebayoran Lama Bungur",
+        "objectId": "R3X4VyeBak",
+        "updatedAt": "2015-03-21T08:58:42.930Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:42.944Z",
+        "groupLocationArea": 53,
+        "groupName": "Tanah Kusir Kodim",
+        "objectId": "YLUOiN31be",
+        "updatedAt": "2015-03-21T08:58:42.944Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:42.959Z",
+        "groupLocationArea": 49,
+        "groupName": "Permata Hijau",
+        "objectId": "yPVKYdn9SI",
+        "updatedAt": "2015-03-21T08:58:42.959Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:42.975Z",
+        "groupLocationArea": 54,
+        "groupName": "Pondok Indah 2",
+        "objectId": "VuljSDizp3",
+        "updatedAt": "2015-03-21T08:58:42.975Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:43.004Z",
+        "groupLocationArea": 46,
+        "groupName": "Kelapa Dua Sasak",
+        "objectId": "t79kndnZlx",
+        "updatedAt": "2015-03-21T08:58:43.004Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:43.037Z",
+        "groupLocationArea": 50,
+        "groupName": "Simprug",
+        "objectId": "FXA0kekM9u",
+        "updatedAt": "2015-03-21T08:58:43.037Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:43.031Z",
+        "groupLocationArea": 51,
+        "groupName": "Pasar Kebayoran Lama",
+        "objectId": "YQc8ZUkaXB",
+        "updatedAt": "2015-03-21T08:58:43.031Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:58:43.349Z",
+        "groupLocationArea": 55,
+        "groupName": "Pondok Indah 1",
+        "objectId": "02WWxPWiX6",
+        "updatedAt": "2015-03-21T08:58:43.349Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:59:32.068Z",
+        "groupLocationArea": 62,
+        "groupName": "Layur",
+        "objectId": "Egjslio3SO",
+        "updatedAt": "2015-03-21T08:59:32.068Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:59:32.150Z",
+        "groupLocationArea": 59,
+        "groupName": "Pulo Gadung",
+        "objectId": "5LfWo9qH2n",
+        "updatedAt": "2015-03-21T08:59:32.150Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:59:32.178Z",
+        "groupLocationArea": 61,
+        "groupName": "TU Gas",
+        "objectId": "a0dCOg3I2c",
+        "updatedAt": "2015-03-21T08:59:32.178Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:59:32.182Z",
+        "groupLocationArea": 63,
+        "groupName": "Pemuda Rawamangun",
+        "objectId": "V6GmrTbs4x",
+        "updatedAt": "2015-03-21T08:59:32.182Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:59:32.202Z",
+        "groupLocationArea": 64,
+        "groupName": "Velodrome",
+        "objectId": "yKZGXkJBh0",
+        "updatedAt": "2015-03-21T08:59:32.202Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:59:32.209Z",
+        "groupLocationArea": 58,
+        "groupName": "Harmoni",
+        "objectId": "8BfAjqJqEh",
+        "updatedAt": "2015-03-21T08:59:32.209Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:59:32.420Z",
+        "groupLocationArea": 60,
+        "groupName": "Pasar Pulogadung",
+        "objectId": "tkH9sMiG65",
+        "updatedAt": "2015-03-21T08:59:32.420Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:59:32.455Z",
+        "groupLocationArea": 57,
+        "groupName": "Terminal Lebak Bulus",
+        "objectId": "UGH23VFTd8",
+        "updatedAt": "2015-03-21T08:59:32.455Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:59:32.509Z",
+        "groupLocationArea": 65,
+        "groupName": "Sunan Giri",
+        "objectId": "x8LXmljgbl",
+        "updatedAt": "2015-03-21T08:59:32.509Z"
+    },
+	{
+        "createdAt": "2015-03-21T08:59:32.510Z",
+        "groupLocationArea": 56,
+        "groupName": "DPondok Pinang",
+        "objectId": "j1w8Ao8Q08",
+        "updatedAt": "2015-03-21T08:59:32.510Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.043Z",
+        "groupLocationArea": 74,
+        "groupName": "Halimun",
+        "objectId": "znSPgKoSG0",
+        "updatedAt": "2015-03-21T09:00:31.043Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.109Z",
+        "groupLocationArea": 68,
+        "groupName": "Pramuka LIA",
+        "objectId": "SsGZAKM8PL",
+        "updatedAt": "2015-03-21T09:00:31.109Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.131Z",
+        "groupLocationArea": 70,
+        "groupName": "Pasar Genjing",
+        "objectId": "EPCetq1C2Y",
+        "updatedAt": "2015-03-21T09:00:31.131Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.183Z",
+        "groupLocationArea": 66,
+        "groupName": "UNJ",
+        "objectId": "koECz70bR8",
+        "updatedAt": "2015-03-21T09:00:31.183Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.185Z",
+        "groupLocationArea": 67,
+        "groupName": "Pramuka BPKP",
+        "objectId": "xXlJPI8qgv",
+        "updatedAt": "2015-03-21T09:00:31.185Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.210Z",
+        "groupLocationArea": 69,
+        "groupName": "Utan Kayu",
+        "objectId": "Daj8Lf91zV",
+        "updatedAt": "2015-03-21T09:00:31.210Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.197Z",
+        "groupLocationArea": 72,
+        "groupName": "Manggarai",
+        "objectId": "Qd6GyU8aVF",
+        "updatedAt": "2015-03-21T09:00:31.197Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.201Z",
+        "groupLocationArea": 73,
+        "groupName": "Pasar Rumput",
+        "objectId": "TzrXwAHy85",
+        "updatedAt": "2015-03-21T09:00:31.201Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.231Z",
+        "groupLocationArea": 71,
+        "groupName": "Matraman",
+        "objectId": "JiJZoJVjuC",
+        "updatedAt": "2015-03-21T09:00:31.231Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.475Z",
+        "groupLocationArea": 75,
+        "groupName": "Dukuh Atas 2",
+        "objectId": "lEa4wWev8k",
+        "updatedAt": "2015-03-21T09:00:31.475Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.560Z",
+        "groupLocationArea": 76,
+        "groupName": "Dummy",
+        "objectId": "uVspqSGO2D",
+        "updatedAt": "2015-03-21T09:00:31.560Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.571Z",
+        "groupLocationArea": 77,
+        "groupName": "Ancol",
+        "objectId": "3pYolRMiDf",
+        "updatedAt": "2015-03-21T09:00:31.571Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.574Z",
+        "groupLocationArea": 78,
+        "groupName": "Pademangan",
+        "objectId": "XEC232Eepo",
+        "updatedAt": "2015-03-21T09:00:31.574Z"
+    },
+	{
+        "createdAt": "2015-03-21T09:00:31.629Z",
+        "groupLocationArea": 79,
+        "groupName": "Gn. Sahari Mangga Dua",
+        "objectId": "WvmZZG3mJh",
+        "updatedAt": "2015-03-21T09:00:31.629Z"
+    }
+] }

@@ -1,0 +1,66 @@
+{ "results": [
+	{
+        "jurusan": "Blok M - Harmony",
+        "busCode": "TJ-019201",
+        "busType": 1,
+        "halteId": "yn1PizypLL",
+        "eta": "1 Jam 15 Menit",
+        "koridor": 1
+    },
+    {
+        "jurusan": "Masjid Istiqlal - Harmony",
+        "busCode": "TJ-019201",
+        "busType": 2,
+        "halteId": "yn1PizypLL",
+        "eta": "2 Jam 00 Menit",
+        "koridor": 2
+    },
+    {
+        "jurusan": "Ancol - Jatinegara",
+        "busCode": "TJ-019201",
+        "busType": 1,
+        "halteId": "yn1PizypLL",
+        "eta": "3 Jam 15 Menit",
+        "koridor": 5
+    },
+    {
+        "jurusan": "Blok M - Harmony",
+        "busCode": "TJ-019201",
+        "busType": 1,
+        "halteId": "yn1PizypLL",
+        "eta": "3 Jam 25 Menit",
+        "koridor": 1
+    },
+    {
+        "jurusan": "Masjid Istiqlal - Harmony",
+        "busCode": "TJ-019201",
+        "busType": 3,
+        "halteId": "yn1PizypLL",
+        "eta": "3 Jam 55 Menit",
+        "koridor": 2
+    },
+    {
+        "jurusan": "Terminal Kampung Rambutan - Kampung Melayu",
+        "busCode": "TJ-019201",
+        "busType": 1,
+        "halteId": "yn1PizypLL",
+        "eta": "4Jam 05 Menit",
+        "koridor": 7
+    },
+    {
+        "jurusan": "Ancol - Jatinegara",
+        "busCode": "TJ-019201",
+        "busType": 2,
+        "halteId": "yn1PizypLL",
+        "eta": "4 Jam 15 Menit",
+        "koridor": 5
+    },
+    {
+        "jurusan": "Cililitan PGC - Tanjung Priok",
+        "busCode": "TJ-019201",
+        "busType": 4,
+        "halteId": "yn1PizypLL",
+        "eta": "5 Jam 10 Menit",
+        "koridor": 10
+    }
+] }
