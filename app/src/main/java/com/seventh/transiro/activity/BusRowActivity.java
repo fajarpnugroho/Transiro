@@ -61,6 +61,7 @@ public class BusRowActivity extends ActionBarActivity {
 
     private void bindDatatoContentView() {
         try {
+
             JSONObject obj = new JSONObject(jsonExtractor.loadJsonFromAssets("data_bus.json"));
             JSONArray arr = obj.getJSONArray("results");
             
