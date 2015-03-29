@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.seventh.transiro.R;
+import com.seventh.transiro.manager.HalteManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -142,12 +143,37 @@ public class RuteActivity extends ActionBarActivity{
         super.onSaveInstanceState(outState);
     }
 
-    private void addListItemRute(String name) {
+    private void addListItemRute(String name, int halteId) {
         TextView halteName = new TextView(this);
         halteName.setText(name);
         halteName.setTextSize(18);
         halteName.setPadding(15, 15, 15, 15);
         halteName.setBackgroundResource(R.drawable.border_textview);
+
+        if (halteId == getIntent().getExtras().getInt("lokasi_akhir")) {
+            int drawableRight = 0;
+            switch (getIntent().getExtras().getInt("img")) {
+                case 1:
+                    drawableRight = R.drawable.small_busway_orange;
+                    break;
+                case 2:
+                    drawableRight = R.drawable.small_busway_blue;
+                    break;
+                case 3:
+                    drawableRight = R.drawable.small_busway_grey;
+                    break;
+                case 4:
+                    drawableRight = R.drawable.small_busway_ijo;
+                    break;
+            }
+            halteName.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableRight, 0);
+        }
+
+        if (HalteManager.getInstance(getApplicationContext()).getCurrentHalte().getHalteName()
+                .equalsIgnoreCase(name)) {
+            halteName.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_people, 0);
+        }
+
         root.addView(halteName);
     }
 
@@ -214,7 +240,8 @@ public class RuteActivity extends ActionBarActivity{
   //              h.setHalteName(arr.getJSONObject(i).getString("HalteName"));
     //            rutes.add(h);
 
-                addListItemRute(arr.getJSONObject(i).getString("HalteName"));
+                addListItemRute(arr.getJSONObject(i).getString("HalteName"),
+                        arr.getJSONObject(i).getInt("HalteId"));
             }
 
 

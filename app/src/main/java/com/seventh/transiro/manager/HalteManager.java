@@ -1,6 +1,8 @@
-package com.seventh.transiro.model;
+package com.seventh.transiro.manager;
 
 import android.content.Context;
+
+import com.seventh.transiro.model.Halte;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,16 @@ public class HalteManager {
     private List<Halte> haltes;
 
     private static HalteManager INSTANCE;
+
+    private Halte currentHalte;
+
+    public Halte getCurrentHalte() {
+        return currentHalte;
+    }
+
+    public void setCurrentHalte(Halte currentHalte) {
+        this.currentHalte = currentHalte;
+    }
 
     public HalteManager(Context context) {
         this.context = context;
@@ -26,4 +38,5 @@ public class HalteManager {
     public void setHaltes(ArrayList<Halte> haltes) { this.haltes = haltes; }
 
     public static void clearInstance(){ if (INSTANCE != null) { INSTANCE = null; } }
+
 }

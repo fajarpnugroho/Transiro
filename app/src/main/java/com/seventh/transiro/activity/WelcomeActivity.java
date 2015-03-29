@@ -14,10 +14,9 @@ import android.widget.TextView;
 
 import com.seventh.transiro.R;
 import com.seventh.transiro.helper.DistanceHelper;
-import com.seventh.transiro.helper.GPSTracker;
 import com.seventh.transiro.helper.JSONExtractor;
+import com.seventh.transiro.manager.HalteManager;
 import com.seventh.transiro.model.Halte;
-import com.seventh.transiro.model.HalteManager;
 import com.seventh.transiro.util.PrefUtil;
 
 import org.json.JSONArray;
@@ -50,8 +49,8 @@ public class WelcomeActivity extends ActivityWithLoadingDialog implements Locati
         setContentView(R.layout.activity_welcome);
         ButterKnife.inject(this);
         setGreetings();
-        // checkLocation();
-        bypassCheckLocation();
+        checkLocation();
+        //bypassCheckLocation();
     }
 
     @Override
@@ -63,25 +62,27 @@ public class WelcomeActivity extends ActivityWithLoadingDialog implements Locati
 
     private void checkLocation() {
 
-        // check if GPS enabled
-        GPSTracker gpsTracker = new GPSTracker(this);
+        mlocManager = (LocationManager) getSystemService (Context.LOCATION_SERVICE);
+        //getting GPS status
+        boolean isGPSEnabled = mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
-        if (gpsTracker.canGetLocation()) {
+        //getting network status
+        boolean isNetworkEnabled = mlocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-            mlocManager = (LocationManager) getSystemService
-                    (Context.LOCATION_SERVICE);
-            mlocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, this);
+        if (isGPSEnabled && isNetworkEnabled) {
+            if (isNetworkEnabled) {
+                mlocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, this);
+                return;
+            }
 
+            if (isGPSEnabled) {
+                mlocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, this);
+                return;
+            }
         } else {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-
-            //Setting Dialog Title
             alertDialog.setTitle("This application need GPS enabled");
-
-            //Setting Dialog Message
             alertDialog.setMessage("Enable GPS?");
-
-            //On Pressing Setting button
             alertDialog.setPositiveButton("Setting", new DialogInterface.OnClickListener()
             {
                 @Override
@@ -91,8 +92,6 @@ public class WelcomeActivity extends ActivityWithLoadingDialog implements Locati
                     startActivityForResult(intent, INT_SETTING);
                 }
             });
-
-            //On pressing cancel button
             alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
             {
                 @Override
@@ -101,7 +100,6 @@ public class WelcomeActivity extends ActivityWithLoadingDialog implements Locati
                     dialog.cancel();
                 }
             });
-
             alertDialog.show();
         }
 

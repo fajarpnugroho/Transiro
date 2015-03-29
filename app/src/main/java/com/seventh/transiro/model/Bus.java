@@ -7,6 +7,24 @@ public class Bus {
     private String halteId;
     private String ETA;
     private int koridor;
+    private int lokasi_akhir;
+    private String lokasi_halte;
+
+    public int getLokasi_akhir() {
+        return lokasi_akhir;
+    }
+
+    public void setLokasi_akhir(int lokasi_akhir) {
+        this.lokasi_akhir = lokasi_akhir;
+    }
+
+    public String getLokasi_halte() {
+        return lokasi_halte;
+    }
+
+    public void setLokasi_halte(String lokasi_halte) {
+        this.lokasi_halte = lokasi_halte;
+    }
 
     public int getKoridor() {
         return koridor;

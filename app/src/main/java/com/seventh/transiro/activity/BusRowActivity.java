@@ -23,8 +23,8 @@ import android.widget.ListView;
 import com.seventh.transiro.R;
 import com.seventh.transiro.adapter.BusAdapter;
 import com.seventh.transiro.helper.JSONExtractor;
+import com.seventh.transiro.manager.HalteManager;
 import com.seventh.transiro.model.Bus;
-import com.seventh.transiro.util.PrefUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -67,7 +67,8 @@ public class BusRowActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(PrefUtil.getLocationUSer(this));
+        getSupportActionBar().setTitle(HalteManager.getInstance(getApplicationContext())
+                .getCurrentHalte().getHalteName());
     }
 
     @Override
@@ -94,6 +95,8 @@ public class BusRowActivity extends ActionBarActivity {
                     b.setHalteId(arr.getJSONObject(i).getString("halteId"));
                     b.setETA(arr.getJSONObject(i).getString("eta"));
                     b.setKoridor(arr.getJSONObject(i).getInt("koridor"));
+                    b.setLokasi_akhir(arr.getJSONObject(i).getInt("lokasi_akhir"));
+                    b.setLokasi_halte(arr.getJSONObject(i).getString("lokasi_halte"));
                     busList.add(b);
             }
 
@@ -117,6 +120,7 @@ public class BusRowActivity extends ActionBarActivity {
         detail.putExtra("img", busAdapter.getItem(position).getBusType());
         detail.putExtra("jurusan", busAdapter.getItem(position).getJurusan());
         detail.putExtra("eta", busAdapter.getItem(position).getETA());
+        detail.putExtra("lokasi_akhir", busAdapter.getItem(position).getLokasi_akhir());
 
         //startActivity(detail);
 

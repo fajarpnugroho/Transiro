@@ -9,9 +9,8 @@ import android.widget.ListView;
 import com.seventh.transiro.R;
 import com.seventh.transiro.adapter.HalteAdapter;
 import com.seventh.transiro.helper.JSONExtractor;
+import com.seventh.transiro.manager.HalteManager;
 import com.seventh.transiro.model.Halte;
-import com.seventh.transiro.model.HalteManager;
-import com.seventh.transiro.util.PrefUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -68,6 +67,10 @@ public class LoungeActivity extends ActivityWithLoadingDialog {
         listHalte.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                HalteManager.getInstance(getApplicationContext())
+                        .setCurrentHalte(adapter.getItem(i));
+
                 matchGroupLocationArea(adapter.getItem(i).getHalteName());
             }
         });
@@ -88,8 +91,6 @@ public class LoungeActivity extends ActivityWithLoadingDialog {
                 }
             } */
 
-            PrefUtil.saveHalteName(this, name);
-            PrefUtil.saveHalteId(this, arr.getJSONObject(0).getString("objectId"));
             showBusRow();
 
         } catch (JSONException e) {

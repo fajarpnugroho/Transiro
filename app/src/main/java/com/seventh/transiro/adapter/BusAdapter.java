@@ -42,6 +42,7 @@ public class BusAdapter extends ArrayAdapter<Bus> {
         holder.busCode.setText(bus.getBusCode());
         holder.jurusan.setText("Jurusan : " + bus.getJurusan());
         holder.eta.setText("Estimasi kedatangan - " + bus.getETA());
+        holder.lokasiAkhir.setText("Lokasi akhir :" + bus.getLokasi_halte());
 
         return convertView;
     }
@@ -51,12 +52,14 @@ public class BusAdapter extends ArrayAdapter<Bus> {
         public final TextView busCode;
         public final TextView jurusan;
         public final TextView eta;
+        public final TextView lokasiAkhir;
 
         public ViewHolder(View view) {
             busType = (ImageView) view.findViewById(R.id.bus_type);
             jurusan = (TextView) view.findViewById(R.id.jurusan);
             busCode = (TextView) view.findViewById(R.id.bus_code);
             eta = (TextView) view.findViewById(R.id.eta);
+            lokasiAkhir = (TextView) view.findViewById(R.id.lokasi_akhir);
         }
     }
 }
