@@ -1,12 +1,23 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/orange</item>
         <item name="colorPrimaryDark">@color/dark_orange</item>
         <item name="colorControlHighlight">@color/dark_orange</item>
         <item name="colorAccent">@color/green</item>
     </style>
+
+    <style name="ToolBarTheme" parent="AppTheme">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="textAppearanceLargePopupMenu">@style/OverflowMenuStyle</item>
+    </style>
+
+    <style name="OverflowMenuStyle" parent="TextAppearance.AppCompat.Light.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="ForecastListStyle">
         <!-- Here it's a stub. In screens of sufficient width, this includes modifications for two-pane layout -->
     </style>

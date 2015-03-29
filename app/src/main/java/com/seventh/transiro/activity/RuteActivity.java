@@ -1,12 +1,17 @@
 package com.seventh.transiro.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,16 +20,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.seventh.transiro.R;
-import com.seventh.transiro.adapter.RuteAdapter;
-import com.seventh.transiro.helper.JSONExtractor;
-import com.seventh.transiro.model.Rute;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -32,13 +31,12 @@ import butterknife.InjectView;
 public class RuteActivity extends ActionBarActivity{
     private static final String TAG = "RuteActivity";
 
-    @InjectView(R.id.list_bus)
-    ListView listBus;
+    @InjectView(R.id.detail_bus_type) ImageView detailBusType;
+    @InjectView(R.id.detail_jurusan) TextView detailJurusan;
+    @InjectView(R.id.detail_eta) TextView detailEta;
     @InjectView(R.id.ProgressBar) ProgressBar progressBar;
-
-    private JSONExtractor jsonExtractor = new JSONExtractor(this);
-    private List<Rute> rutes = new ArrayList<Rute>();
-    private RuteAdapter adapter;
+    @InjectView(R.id.toolbar) Toolbar toolbar;
+    @InjectView(R.id.root) LinearLayout root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +44,48 @@ public class RuteActivity extends ActionBarActivity{
         setContentView(R.layout.activity_rute);
         ButterKnife.inject(this);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setAllowEnterTransitionOverlap(false);
+            getWindow().setEnterTransition(new Explode()
+                    .excludeTarget(android.R.id.navigationBarBackground, true)
+                    .excludeTarget(android.R.id.statusBarBackground, true));
+            getWindow().setReturnTransition(new Explode()
+                    .excludeTarget(android.R.id.navigationBarBackground, true));
+            postponeEnterTransition();
+        }
+
+        showedHeaderView();
         setupActionbar();
         setupRequest();
+    }
+
+    private void addListItemRute(String name) {
+        TextView halteName = new TextView(this);
+        halteName.setText(name);
+        halteName.setTextSize(18);
+        halteName.setPadding(15, 15, 15, 15);
+        halteName.setBackgroundResource(R.drawable.border_textview);
+        root.addView(halteName);
+    }
+
+    private void showedHeaderView() {
+        switch (getIntent().getExtras().getInt("img")) {
+            case 1:
+                detailBusType.setImageResource(R.drawable.busway_orange);
+                break;
+            case 2:
+                detailBusType.setImageResource(R.drawable.busway_blue);
+                break;
+            case 3:
+                detailBusType.setImageResource(R.drawable.busway_grey);
+                break;
+            case 4:
+                detailBusType.setImageResource(R.drawable.busway_ijo);
+                break;
+        }
+
+        detailJurusan.setText(getIntent().getExtras().getString("jurusan"));
+        detailEta.setText(getIntent().getExtras().getString("eta"));
     }
 
     private void setupRequest() {
@@ -74,26 +112,42 @@ public class RuteActivity extends ActionBarActivity{
     }
 
     private void bindDatatoContentView(String result) {
+
+        TextView headerRute = new TextView(this);
+        headerRute.setText("Rute yang ditempuh");
+        headerRute.setPadding(15, 15, 15, 15);
+        headerRute.setTextSize(22);
+        headerRute.setTextColor(getResources().getColor(R.color.white));
+        headerRute.setBackgroundColor(getResources().getColor(R.color.dark_orange));
+
+        root.addView(headerRute);
+
         try {
             JSONObject obj = new JSONObject(result);
             JSONArray arr = obj.getJSONArray("result");
 
             for (int i = 0; i < arr.length(); i++) {
-                    Rute h = new Rute();
-                    h.setHalteName(arr.getJSONObject(i).getString("HalteName"));
-                rutes.add(h);
+//                Rute h = new Rute();
+  //              h.setHalteName(arr.getJSONObject(i).getString("HalteName"));
+    //            rutes.add(h);
+
+                addListItemRute(arr.getJSONObject(i).getString("HalteName"));
             }
 
-            RuteAdapter adapter = new RuteAdapter(this, rutes);
-            listBus.setAdapter(adapter);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                startPostponedEnterTransition();
+        }
+
     }
 
     private void setupActionbar() {
+        setSupportActionBar(toolbar);
+
         getSupportActionBar().setTitle("Rute");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

@@ -7,4 +7,5 @@
     <!-- Strings related to transition animations -->
     <string name="transition_image">transition_image</string>
     <string name="transition_jurusan">transition_jurusan</string>
+    <string name="transition_eta">transition_eta</string>
 </resources>

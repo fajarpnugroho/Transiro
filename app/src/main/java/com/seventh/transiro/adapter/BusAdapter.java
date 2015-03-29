@@ -41,7 +41,7 @@ public class BusAdapter extends ArrayAdapter<Bus> {
         holder.busType.setImageResource(imagesBusway[bus.getBusType()-1]);
         holder.busCode.setText(bus.getBusCode());
         holder.jurusan.setText("Jurusan : " + bus.getJurusan());
-        holder.eta.setText("ETA - " + bus.getETA());
+        holder.eta.setText("Estimasi kedatangan - " + bus.getETA());
 
         return convertView;
     }
