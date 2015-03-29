@@ -1,5 +1,9 @@
 package com.seventh.transiro.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,10 +12,12 @@ import android.transition.Explode;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,10 +43,19 @@ public class RuteActivity extends ActionBarActivity{
     @InjectView(R.id.ProgressBar) ProgressBar progressBar;
     @InjectView(R.id.toolbar) Toolbar toolbar;
     @InjectView(R.id.root) LinearLayout root;
+    @InjectView(R.id.fab) ImageButton fab;
+
+    private static final String SET_REMINDER_KEY = "set_reminder";
+    private boolean mReminderSet = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            mReminderSet = savedInstanceState.getBoolean(SET_REMINDER_KEY);
+        }
+
         setContentView(R.layout.activity_rute);
         ButterKnife.inject(this);
 
@@ -57,6 +72,74 @@ public class RuteActivity extends ActionBarActivity{
         showedHeaderView();
         setupActionbar();
         setupRequest();
+
+        fab.setImageResource(mReminderSet ?
+                R.drawable.ic_event_unset_white :
+                R.drawable.ic_event_set_white );
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!mReminderSet) {
+                    fab.setImageResource(R.drawable.ic_event_set_white);
+                    animateFab(R.drawable.ic_event_unset_white,
+                            R.string.toast_added_reminder);
+                    mReminderSet = true;
+                } else {
+                    fab.setImageResource(R.drawable.ic_event_unset_white);
+                    animateFab(R.drawable.ic_event_set_white,
+                            R.string.toast_deleted_reminder);
+                    mReminderSet = false;
+                }
+            }
+        });
+    }
+
+    // Animates the Fab to toImg.
+    // Also displays a toast at the end of the animation.
+    private void animateFab(final int toImgResId, final int toastMsgResId) {
+        int duration = getResources().getInteger(
+                android.R.integer.config_shortAnimTime);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB_MR2) {
+            Animator outAnimator = ObjectAnimator.ofFloat(fab, View.ALPHA, 0f);
+            outAnimator.setDuration(duration / 2);
+            outAnimator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    fab.setImageResource(toImgResId);
+                }
+            });
+            AnimatorSet inAnimator = new AnimatorSet();
+            inAnimator.playTogether(
+                    ObjectAnimator.ofFloat(fab, View.ALPHA, 1f),
+                    ObjectAnimator.ofFloat(fab, View.SCALE_X, 0f, 1f),
+                    ObjectAnimator.ofFloat(fab, View.SCALE_Y, 0f, 1f)
+            );
+            inAnimator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    Toast.makeText(getApplicationContext(),
+                            getResources().getText(toastMsgResId),
+                            Toast.LENGTH_SHORT)
+                            .show();
+                }
+            });
+            AnimatorSet set = new AnimatorSet();
+            set.playSequentially(outAnimator, inAnimator);
+            set.start();
+        } else {
+            // Animation not supported in this device, so no animation
+            fab.setImageResource(toImgResId);
+            Toast.makeText(getApplicationContext(),
+                    getResources().getText(toastMsgResId),
+                    Toast.LENGTH_SHORT)
+                    .show();
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean(SET_REMINDER_KEY, mReminderSet);
+        super.onSaveInstanceState(outState);
     }
 
     private void addListItemRute(String name) {

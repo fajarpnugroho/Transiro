@@ -8,4 +8,7 @@
     <string name="transition_image">transition_image</string>
     <string name="transition_jurusan">transition_jurusan</string>
     <string name="transition_eta">transition_eta</string>
+
+    <string name="toast_added_reminder">Added reminder.</string>
+    <string name="toast_deleted_reminder">Removed reminder.</string>
 </resources>
