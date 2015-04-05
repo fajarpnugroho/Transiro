@@ -5,6 +5,15 @@ public class Halte{
     private double longitude;
     private double latitude;
     private double distanceFromUser;
+    private String koridorNo;
+
+    public String getKoridorNo() {
+        return koridorNo;
+    }
+
+    public void setKoridorNo(String koridorNo) {
+        this.koridorNo = koridorNo;
+    }
 
     public double getDistanceFromUser() {
         return distanceFromUser;

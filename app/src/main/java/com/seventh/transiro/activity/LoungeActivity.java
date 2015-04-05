@@ -12,10 +12,6 @@ import com.seventh.transiro.helper.JSONExtractor;
 import com.seventh.transiro.manager.HalteManager;
 import com.seventh.transiro.model.Halte;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -71,43 +67,17 @@ public class LoungeActivity extends ActivityWithLoadingDialog {
                 HalteManager.getInstance(getApplicationContext())
                         .setCurrentHalte(adapter.getItem(i));
 
-                matchGroupLocationArea(adapter.getItem(i).getHalteName());
+                Intent chat = new Intent(getApplicationContext(), BusRowActivity.class);
+                chat.putExtra("koridor", adapter.getItem(i).getKoridorNo());
+                startActivity(chat);
             }
         });
-    }
-
-    private void matchGroupLocationArea(String name) {
-        showLoadingDialog();
-        try {
-            JSONObject obj = new JSONObject(jsonExtractor.loadJsonFromAssets("data_group.json"));
-            JSONArray arr = obj.getJSONArray("results");
-
-            /*for (int i = 0; i < arr.length(); i++) {
-                if (arr.getJSONObject(i).getString("groupName").contains(name)) {
-                    PrefUtil.saveHalteName(this, name);
-                    PrefUtil.saveHalteId(this, arr.getJSONObject(i).getString("objectId"));
-                    showBusRow();
-                    break;
-                }
-            } */
-
-            showBusRow();
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if (halteManager != null) { halteManager.clearInstance(); }
-    }
-
-    private void showBusRow() {
-        hideLoadingDialog();
-        Intent chat = new Intent(this, BusRowActivity.class);
-        startActivity(chat);
     }
 
     @Override

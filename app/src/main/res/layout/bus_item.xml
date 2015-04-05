@@ -43,13 +43,6 @@
             android:fontFamily="sans-serif-light"
             android:textColor="@color/black"
             android:transitionName="@string/transition_eta"/>
-        <TextView
-            android:id="@+id/lokasi_akhir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:textColor="@color/black"
-            android:text="Lokasi akhir: Jakarta"/>
     </LinearLayout>
 
 </RelativeLayout>

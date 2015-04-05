@@ -50,7 +50,6 @@ public class WelcomeActivity extends ActivityWithLoadingDialog implements Locati
         ButterKnife.inject(this);
         setGreetings();
         checkLocation();
-        //bypassCheckLocation();
     }
 
     @Override
@@ -133,50 +132,19 @@ public class WelcomeActivity extends ActivityWithLoadingDialog implements Locati
                         arr.getJSONObject(i).getDouble("Long"),
                         "K");
 
+                // show halte with distance 5KM from user
                 //if (d <= 12) {
                     Halte h = new Halte();
                     h.setHalteName(arr.getJSONObject(i).getString("HalteName"));
                     h.setLongitude(arr.getJSONObject(i).getDouble("Long"));
                     h.setLatitude(arr.getJSONObject(i).getDouble("Lat"));
                     h.setDistanceFromUser(d);
+                    h.setKoridorNo(arr.getJSONObject(i).getString("KoridorNo"));
                     halteManager.getHaltes().add(h);
                 //}
             }
 
             mlocManager.removeUpdates(this);
-            Intent lounge = new Intent(WelcomeActivity.this, LoungeActivity.class);
-            startActivity(lounge);
-            finish();
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void bypassCheckLocation(){
-        try {
-
-            JSONObject obj = new JSONObject(jsonExtractor.loadJsonFromAssets("data_halte.json"));
-            JSONArray arr = obj.getJSONArray("results");
-
-            for (int i = 0; i < arr.length(); i++) {
-
-                double d = DistanceHelper.distance(
-                        -6.1863104,106.8250678,
-                        arr.getJSONObject(i).getDouble("Lat"),
-                        arr.getJSONObject(i).getDouble("Long"),
-                        "K");
-
-                if (d <= 12) {
-                    Halte h = new Halte();
-                    h.setHalteName(arr.getJSONObject(i).getString("HalteName"));
-                    h.setLongitude(arr.getJSONObject(i).getDouble("Long"));
-                    h.setLatitude(arr.getJSONObject(i).getDouble("Lat"));
-                    h.setDistanceFromUser(d);
-                    halteManager.getHaltes().add(h);
-                }
-            }
-
             Intent lounge = new Intent(WelcomeActivity.this, LoungeActivity.class);
             startActivity(lounge);
             finish();

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
@@ -14,14 +15,24 @@ import android.transition.Fade;
 import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.nispok.snackbar.Snackbar;
 import com.seventh.transiro.R;
 import com.seventh.transiro.adapter.BusAdapter;
+import com.seventh.transiro.helper.DistanceHelper;
 import com.seventh.transiro.helper.JSONExtractor;
 import com.seventh.transiro.manager.HalteManager;
 import com.seventh.transiro.model.Bus;
@@ -30,7 +41,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -38,6 +51,7 @@ import butterknife.InjectView;
 
 public class BusRowActivity extends ActionBarActivity {
     private static final String TAG = "BusRowActivity";
+    private static final int SCHEDULE = 60000;
 
     @InjectView(R.id.list_bus) ListView listBus;
     @InjectView(R.id.toolbar) Toolbar toolbar;
@@ -45,6 +59,7 @@ public class BusRowActivity extends ActionBarActivity {
     private List<Bus> busList = new ArrayList<Bus>();
     private JSONExtractor jsonExtractor = new JSONExtractor(this);
     private BusAdapter busAdapter;
+    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +69,48 @@ public class BusRowActivity extends ActionBarActivity {
 
         setupActionBar();
 
-        bindDatatoContentView();
+        trackBusLocation();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setAllowReturnTransitionOverlap(true);
             getWindow().setReenterTransition(new Fade()
                     .excludeTarget(android.R.id.navigationBarBackground, true));
         }
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                busAdapter.clear();
+                listBus.setAdapter(null);
+                busAdapter.notifyDataSetChanged();
+                trackBusLocation();
+            }
+        }, SCHEDULE);
+    }
+
+    private void trackBusLocation() {
+        Snackbar.with(getApplicationContext())
+                .text("Scheduling time arrival...")
+                .show(this);
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "http://202.51.116.138:8088/jsc.asp?rq=jakartasmartcity&id=476A837BE937ED73";
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.v(TAG, response);
+                        bindDatatoContentView(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, error.getMessage());
+            }
+        });
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
     }
 
     private void setupActionBar(){
@@ -81,23 +131,43 @@ public class BusRowActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void bindDatatoContentView() {
+    private void bindDatatoContentView(String response) {
         try {
 
-            JSONObject obj = new JSONObject(jsonExtractor.loadJsonFromAssets("data_bus.json"));
-            JSONArray arr = obj.getJSONArray("results");
+            JSONObject obj = new JSONObject(response);
+            JSONArray arr = obj.getJSONArray("buswaytracking");
+
+            Log.v("KORIDOR", HalteManager.getInstance(getApplicationContext()).getCurrentHalte()
+                    .getKoridorNo());
             
             for(int i=0; i< arr.length(); i++) {
-                    Bus b = new Bus();
-                    b.setBusCode(arr.getJSONObject(i).getString("busCode"));
-                    b.setJurusan(arr.getJSONObject(i).getString("jurusan"));
-                    b.setBusType(arr.getJSONObject(i).getInt("busType"));
-                    b.setHalteId(arr.getJSONObject(i).getString("halteId"));
-                    b.setETA(arr.getJSONObject(i).getString("eta"));
-                    b.setKoridor(arr.getJSONObject(i).getInt("koridor"));
-                    b.setLokasi_akhir(arr.getJSONObject(i).getInt("lokasi_akhir"));
-                    b.setLokasi_halte(arr.getJSONObject(i).getString("lokasi_halte"));
-                    busList.add(b);
+                    if (arr.getJSONObject(i).getString("buscode").equals("")) continue;
+
+                    if (arr.getJSONObject(i).getString("koridor") == null) continue;
+
+                    if (arr.getJSONObject(i).getString("koridor").equalsIgnoreCase("XX")) continue;
+
+                    if (arr.getJSONObject(i).getInt("speed") == 0) continue;
+
+                    if (HalteManager.getInstance(getApplicationContext()).getCurrentHalte().getKoridorNo()
+                            .equals(arr.getJSONObject(i).getString("koridor"))) {
+                        Bus b = new Bus();
+                        b.setBusCode(arr.getJSONObject(i).getString("buscode"));
+                        b.setKoridor(arr.getJSONObject(i).getString("koridor"));
+                        b.setGpsTime(arr.getJSONObject(i).getString("gpsdatetime"));
+                        b.setLongitude(arr.getJSONObject(i).getDouble("longitude"));
+                        b.setLatitude(arr.getJSONObject(i).getDouble("latitude"));
+                        b.setSpeed(arr.getJSONObject(i).getInt("speed"));
+                        b.setCourse(arr.getJSONObject(i).getInt("course"));
+                        b.setETA(calculatedTimeArrival(getDistanceBusToHalte(
+                                        b.getLongitude(), b.getLatitude()),
+                                        b.getSpeed()));
+                        busList.add(b);
+                    }
+            }
+
+            if (busList.size() == 0) {
+                Toast.makeText(this, "Not found", Toast.LENGTH_SHORT).show();
             }
 
             busAdapter = new BusAdapter(this, busList);
@@ -112,6 +182,30 @@ public class BusRowActivity extends ActionBarActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    private double getDistanceBusToHalte(double longitude, double latitude){
+        return DistanceHelper.distance(
+                latitude,
+                longitude,
+                HalteManager.getInstance(this).getCurrentHalte().getLatitude(),
+                HalteManager.getInstance(this).getCurrentHalte().getLongitude(),
+                "K"
+        );
+    }
+
+    private String calculatedTimeArrival(double distance, double speed) {
+        double time = (distance / speed) * 60;
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, (int) (time/60));
+        cal.set(Calendar.MINUTE, (int) (time % 60));
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        String hhmm = sdf.format(cal.getTime());
+
+        return hhmm;
     }
 
     private void detail(int position) {
